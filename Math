@@ -1,6 +1,7 @@
+
 % trifilar_pendulum
-% Models a trifilar pendulum with a circular base
-% 
+%Models a trifilar pendulum with a circular base
+%with an object of known mass, z-axis inertia
 %Dynamics Final Project Fall 2013
 %Halie Murray-Davis and Jessica Oehrlein
 %12/2/2013
@@ -16,26 +17,37 @@ m = m_disk + m_obj; %total mass
 l_wire = .5; %length of wire/cable in m
 
 t = m*g/3; %total tension due to three cables
-I_base = mr^2/2; %z-axis inertia of base
+%all inertias wrt base COM
+I_base = m*r_disk^2/2; %z-axis inertia of base
 I_obj = 0; %z-axis inertia of object
 I = I_base + I_obj; %total z-axis inertia
 
 %initial conditions
-theta_0 = .40; %initial rotation of base in rads
+theta_0 = pi/8; %initial rotation of base in rads
 thetadot_0 = 0; %initial angular velocity of base in rad/s
 
 Z_0 = [theta_0, thetadot_0];
 
-%tiime span
+%time span
 tspan=[0:.001:20];
 
 %numerical solution
-[t,zout] = ode45(@pendfun,tspan,Z_0);
+options = odeset('Event',@detect_period);
+[t,zout,t_event, th_event, index] = ode45(@pendfun,tspan,Z_0,options);
+
+period = t_event(3)-t_event(2)
 
 %numerical calculation
      function states = pendfun(T, ZZ)
          z1 = ZZ(2);
-         z2 = -(3*r^2*t/(l_wire*I))*sin(ZZ(1));
+         z2 = -(3*r_disk^2*t/(l_wire*I))*sin(ZZ(1));
          states = [z1;z2];
      end
+    
+     function [value,stop,dir] = detect_period(t,th)
+         value = th(1);
+         stop = 0;
+         dir = 1;
+     end
+     
 end
