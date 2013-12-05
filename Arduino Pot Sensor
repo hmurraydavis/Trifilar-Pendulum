@@ -27,7 +27,7 @@ float last_pot;
 void setup() {
   // initialize serial communication at 9600 bits per second:
   Serial.begin(9600);
-  last_pot=analogRead(A0)*(5.0 / 1023.0);
+  last_pot=analogRead(A0)*(5.0 / 1023.0); 
 }
 
 // the loop routine runs over and over again forever:
@@ -41,6 +41,6 @@ void loop() {
   
   lookatderiv(last_pot,Potvoltage);
   //  Serial.println());
-  last_Pot=Potvoltage; 
+  last_pot=Potvoltage; 
 }
 
