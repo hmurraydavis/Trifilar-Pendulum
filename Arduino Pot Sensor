@@ -1,17 +1,17 @@
 String lookatderiv(float last, float current){
     String deriv;   
   
-    if (last>current){
+    if (last-current>=.01){
        deriv="decreasing";
        return deriv;
    }
    
-   if (current > last){
+   if (current-last>=.01){
        deriv="increasing";
        return deriv;
    }
    
-   if (current == last){
+   if (current-last<.02){
        deriv="constant not turning";
        return deriv;
    } 
@@ -20,6 +20,7 @@ String lookatderiv(float last, float current){
 
 //declare global variables:
 float last_pot;
+float potpot;
 
 // the setup routine runs once when you press reset:
 void setup() {
