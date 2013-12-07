@@ -4,6 +4,8 @@ String lookatderiv(float last, float current){
        return deriv;
    }
    
+   
+   
    if (current < last){
        String deriv="increasing";
        return deriv;
@@ -37,10 +39,10 @@ void loop() {
   // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
   float Potvoltage = Pot * (5.0 / 1023.0);
   // print out the value you read:
-  Serial.println(Potvoltage);
+  //Serial.println(Potvoltage);
   
-  lookatderiv(last_pot,Potvoltage);
-  //  Serial.println());
+  String derv=lookatderiv(last_pot,Potvoltage);
+  Serial.println(derv);
   last_pot=Potvoltage; 
 }
 
