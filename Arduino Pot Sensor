@@ -16,10 +16,6 @@ String lookatderiv(float last, float current){
        return deriv;
    }
    
-   else {
-     String err= "Some error. Debug time!";
-     return err;
-   }
    
 }
 
