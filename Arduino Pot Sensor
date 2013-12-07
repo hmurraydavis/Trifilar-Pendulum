@@ -6,7 +6,7 @@ String lookatderiv(float last, float current){
        return deriv;
    }
    
-   if (current < last){
+   if (current > last){
        deriv="increasing";
        return deriv;
    }
@@ -40,6 +40,7 @@ void loop() {
   
   String derv=lookatderiv(last_pot,Potvoltage);
   Serial.println(derv);
-  last_pot=Potvoltage; 
+  last_pot=Potvoltage;
+  delay(10);
 }
 
