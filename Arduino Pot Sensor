@@ -4,19 +4,15 @@ String lookatderiv(float last, float current){
        return deriv;
    }
    
-   
-   
    if (current < last){
        String deriv="increasing";
        return deriv;
    }
    
    if (current == last){
-       String deriv="constant, not turning";
+       String deriv="constant not turning";
        return deriv;
-   }
-   
-   
+   } 
 }
 
 
@@ -25,8 +21,9 @@ float last_pot;
 void setup() {
   // initialize serial communication at 9600 bits per second:
   Serial.begin(9600);
-  last_pot=analogRead(A0)*(5.0 / 1023.0); 
+  last_pot=1;//analogRead(A0)*(5.0 / 1023.0); 
 }
+
 
 // the loop routine runs over and over again forever:
 void loop() {
@@ -38,7 +35,7 @@ void loop() {
   //Serial.println(Potvoltage);
   
   String derv=lookatderiv(last_pot,Potvoltage);
-  Serial.println(derv);
-  last_pot=Potvoltage; 
+  //Serial.println(derv);
+  //last_pot=Potvoltage; 
 }
 
