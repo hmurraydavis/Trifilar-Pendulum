@@ -36,5 +36,10 @@ void loop() {
   Serial.println(sign);
   last_sign=sign;
   timer++;
+  if (last_sign!=sign){
+    timer=0;
+    Serial.println("It changed direction!");
+  }
+  Serial.println(timer);
   delay(10);
 }
