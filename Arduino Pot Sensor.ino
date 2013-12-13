@@ -21,6 +21,8 @@ String lookatderiv(float last, float current){
 //declare global variables:
 float last_pot;
 float potpot;
+String lastderiv;
+int counter=0;
 
 // the setup routine runs once when you press reset:
 void setup() {
@@ -42,6 +44,11 @@ void loop() {
   String derv=lookatderiv(last_pot,Potvoltage);
   Serial.println(derv);
   last_pot=Potvoltage;
+  counter++;
+  Serial.println(counter);
+  if (deriv != lastderiv){
+    counter=0;
+  }
   delay(10);
 }
 
