@@ -48,6 +48,7 @@ void loop() {
   Serial.println(counter);
   if (derv != lastderiv){
     counter=0;
+    float millis;
+    Serial.println(millis);
   }
-  delay(10);
 }
