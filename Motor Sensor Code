@@ -18,6 +18,7 @@ String voltagesign(float motor){
 //declare global variables:
 String last_sign;
 int timer;
+float t0;
 
 
 // the setup routine runs once when you press reset:
@@ -41,10 +42,14 @@ void loop() {
   //Serial.println(analogRead(A1));
   Serial.println(sign);
   last_sign=sign;
-  timer++;
   if (last_sign!=sign){
-    timer=0;
+    float millis; 
+    float t1;
+    t1=millis;
     Serial.println("It changed direction!");
+    Serial.print("The period was:")
+    Serial.println(t1-t0);
+    t0=t1;
   }
   //Serial.println(timer);
   delay(50);
