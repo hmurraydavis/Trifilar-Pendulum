@@ -46,9 +46,8 @@ void loop() {
   last_pot=Potvoltage;
   counter++;
   Serial.println(counter);
-  if (deriv != lastderiv){
+  if (derv != lastderiv){
     counter=0;
   }
   delay(10);
 }
-
