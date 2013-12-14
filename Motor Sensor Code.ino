@@ -1,7 +1,7 @@
 String voltagesign(float motor){
     String sign;   
   
-       if (motor==0){
+   if (motor==0){
        sign="Negative";
        return sign;
    }
@@ -10,8 +10,6 @@ String voltagesign(float motor){
        sign="Posititve";
        return sign;
    }
-   
-
 }
 
 
@@ -21,7 +19,6 @@ int timer;
 float t0;
 
 
-// the setup routine runs once when you press reset:
 void setup() {
   // initialize serial communication at 9600 bits per second:
   Serial.begin(9600);
