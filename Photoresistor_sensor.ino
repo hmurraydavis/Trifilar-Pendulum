@@ -1,12 +1,7 @@
 String voltagesign(float motor){
     String sign;   
-  
-   if (motor>100){
-       sign="Nope!";
-       return sign;
-   }
     
-    if (motor<=100){
+    if (motor>=9){
        sign="Gate happened";
        return sign;
    }
@@ -28,10 +23,9 @@ void setup() {
 void loop() {
   // read the value from the sensor:
   sensorValue = analogRead(sensorPin);
-  //Serial.println("Hi there, little friend!");  
-  Serial.println(sensorValue);
+  //Serial.println(sensorValue);
   String gate=voltagesign(sensorValue);
-  Serial.println(gate);
+  //Serial.println(gate);
   if (gate=="Gate happened"){
     Serial.print("The time of this period event was:");
     lasttime=millis();
