@@ -16,7 +16,7 @@ String voltagesign(float motor){
 //declare global variables:
 int sensorPin = A0;    // select the input pin for the potentiometer
 int sensorValue = 0;  // variable to store the value coming from the sensor
-
+float lasttime;
 
 //setup loop:
 void setup() {
@@ -34,7 +34,7 @@ void loop() {
   Serial.println(gate);
   if (gate=="Gate happened"){
     Serial.print("The time of this period event was:");
-    float millis;
-    Serial.println(millis);
+    lasttime=millis();
+    Serial.println(millis());
   }
 }
